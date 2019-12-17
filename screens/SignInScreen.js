@@ -108,6 +108,10 @@ export default class SignInScreen extends Component {
       return { error: true };
     }
   }
+
+  debugNavigateNow = () => {
+    this.props.navigation.navigate('MainNavigator');
+  }
   
   componentDidMount() {
     Animated.timing(this.state.progress, {
@@ -139,7 +143,8 @@ export default class SignInScreen extends Component {
               <Button 
                 title="Sign In"
                 color="#e61610"
-                onPress={()=>this.signInWithGoogleAsync()}
+                //onPress={()=>this.signInWithGoogleAsync()}
+                onPress={()=>this.debugNavigateNow()}
               />
             </View>
         </SafeAreaView>

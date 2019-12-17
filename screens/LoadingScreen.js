@@ -10,13 +10,18 @@ import firebase from 'firebase';
 export default class LoadingScreen extends Component {
     componentDidMount() {
         this.checkIfLoggedIn();
+        //this.debugNavigateNow();
+    }
+
+    debugNavigateNow = () => {
+      this.props.navigation.navigate('MainNavigator');
     }
     
     checkIfLoggedIn = () => {
         firebase.auth().onAuthStateChanged(function(user)
         {
             if(user) {
-                this.props.navigation.navigate('DashBoard');
+                this.props.navigation.navigate('MainNavigator');
             } else {
                 this.props.navigation.navigate('SignInScreen');
             }
