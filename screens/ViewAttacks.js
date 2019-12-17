@@ -5,6 +5,7 @@ import Constants from 'expo-constants';
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
 
+// White Page component that will be used in the scroll view
 const Page = props => {
     return (
       <View style={styles.page}>
@@ -36,96 +37,99 @@ const Page = props => {
         <View style={styles.pageTable}>
             <Text style={styles.subTitle}>Notes:</Text><Text style={styles.data}>{props.attack.notes}</Text>
         </View>
-      </View>
+        </View>
     )
-  }
-  
+}
 
+// main ViewAttacks class
 export default class ViewAttacks extends React.Component {
     state = {
         attacks: this.props.screenProps.attacks
     }
 
+    // checks if update happened to update the state of itself
     componentDidUpdate() {
         if(this.state.attacks !== this.props.screenProps.attacks){
-          this.setState({attacks: this.props.screenProps.attacks})
+            this.setState({attacks: this.props.screenProps.attacks})
           //console.log(this.state.attacks)
         }
-      }
+    }
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <View>
-          <Text style={styles.sectionHeader}>Entries</Text>
-        </View>
-        <ScrollView pagingEnabled horizontal showsHorizontalScrollIndicator={false}>
-            {console.log(this.props.screenProps.attacks)}
-            {this.props.screenProps.attacks.map((item) => (
-                <Page key={item.key} attack={item} />
-            ))}
-          </ScrollView>
-      </View>
-    );
-  }
+    // render method
+    render() {
+        return (
+            <View style={styles.container}>
+                <View>
+                    <Text style={styles.sectionHeader}>Entries</Text>
+                </View>
+                <ScrollView pagingEnabled horizontal showsHorizontalScrollIndicator={false}>
+                    {console.log(this.props.screenProps.attacks)}
+                    {this.props.screenProps.attacks.map((item) => (
+                        <Page key={item.key} attack={item} />
+                    ))}
+                </ScrollView>
+            </View>
+        );
+    }
 }
 
+// styles
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#232323",
-    paddingTop: Constants.statusBarHeight + 2,
-    justifyContent: 'flex-start',
-    padding: 8,
-  },
-  text: {
-    textAlign: "center"
-  },
-  sectionHeader : {
-    fontSize : 36,
-    color: '#FFFFFF',
-    fontWeight: 'bold',
-    //fontFamily: 'Abel',
-    paddingLeft: 10,
-    paddingBottom: 8,
-    paddingTop: 8,
-  },
-  pageTitle: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  page: {
-    backgroundColor: '#FFFFFF',
-    height: screenHeight - 16 - 40 - 100,
-    width: screenWidth - 16 - 40,
-    borderRadius: 20,
-    marginLeft: 20,
-    marginRight: 20
-  },
-  subTitle: {
-    color: 'black',
-    fontWeight: 'bold',
-    fontSize: 25
-  },
-  data: {
-    color: 'black',
-    fontSize: 25
-  },
-  pageTable: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 10
-  },
-  squareFilled: { 
-    width: 40, 
-    height: 40, 
-    backgroundColor: 'red' 
-  },
-  squareNotFileld: { 
-    width: 40, 
-    height: 40, 
-    backgroundColor: 'grey' 
-  }
+    container: {
+        flex: 1,
+        backgroundColor: "#232323",
+        paddingTop: Constants.statusBarHeight + 2,
+        justifyContent: 'flex-start',
+        padding: 8,
+    },
+    text: {
+        textAlign: "center"
+    },
+    sectionHeader : {
+        fontSize : 36,
+        color: '#FFFFFF',
+        fontWeight: 'bold',
+        //fontFamily: 'Abel',
+        paddingLeft: 10,
+        paddingBottom: 8,
+        paddingTop: 8,
+    },
+    pageTitle: {
+        margin: 24,
+        fontSize: 18,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    page: {
+        backgroundColor: '#FFFFFF',
+        height: screenHeight - 16 - 40 - 100,
+        width: screenWidth - 16 - 40,
+        borderRadius: 20,
+        marginLeft: 20,
+        marginRight: 20
+    },
+    subTitle: {
+        color: 'black',
+        fontWeight: 'bold',
+        fontSize: 25
+    },
+    data: {
+        color: 'black',
+        fontSize: 25
+    },
+    pageTable: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        padding: 10
+    },
+    squareFilled: { 
+        width: 40, 
+        height: 40, 
+        backgroundColor: 'red' 
+    },
+    squareNotFileld: { 
+        width: 40, 
+        height: 40, 
+        backgroundColor: 'grey' 
+    }
 });

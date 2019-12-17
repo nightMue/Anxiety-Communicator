@@ -14,6 +14,7 @@ import firebase from 'firebase';
 import {firebaseConfig} from './config'
 firebase.initializeApp(firebaseConfig);
 
+// tab bar navigator
 const mainNavigator = createBottomTabNavigator(
   {
     DashBoard: DashBoard,
@@ -53,23 +54,28 @@ const mainNavigator = createBottomTabNavigator(
   }
 );
 
+// switch nav for sign in screen and main app content
 const AppSwitchNavigator = createSwitchNavigator({
   LoadingScreen: LoadingScreen,
   SignInScreen: SignInScreen,
   MainNavigator: mainNavigator,
 }, { initialRouteName: "LoadingScreen"})
 
+// main app navigator creation
 const AppNavigator  = createAppContainer(AppSwitchNavigator);
 
+// main app class that has state of attacks
 export default class App extends React.Component {
   state = {
     attacks: attacks
   }
 
+  // sets state to the default 10 auto generated attacks
   componentDidMount(){
     this.setState({attacks: attacks});
   }
 
+  // method to add attack to the state
   AddAttack = (state) => {
     let p = state;
     p.key = this.state.attacks.length
@@ -77,6 +83,7 @@ export default class App extends React.Component {
     let t = this.state.attacks.push(p)
   }
 
+  // render method with screen props for passing data
   render() {
     return <AppNavigator screenProps={{
       attacks: this.state.attacks,

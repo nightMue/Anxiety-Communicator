@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, Text, Animated, Easing } from "react-native";
 import LottieView from 'lottie-react-native';
 
-
+// main Settings class
 export default class Settings extends React.Component {
     constructor(props) {
         super(props);
@@ -11,6 +11,7 @@ export default class Settings extends React.Component {
         };
     }
 
+    // on mount set listener for focus to restart the lotti animation
     componentDidMount() {
         this.props.navigation.addListener('didFocus', this.onScreenFocus.bind(this))
         Animated.timing(this.state.progress, {
@@ -20,6 +21,7 @@ export default class Settings extends React.Component {
         }).start();
     }
 
+    // on focus method to start animation
     onScreenFocus() {
         this.setState({progress: new Animated.Value(0)})
         Animated.timing(this.state.progress, {
@@ -29,6 +31,7 @@ export default class Settings extends React.Component {
         }).start();
     }
 
+    // render method
     render() {
         return (
         <View style={styles.container}>
@@ -51,18 +54,19 @@ export default class Settings extends React.Component {
     }
 }
 
+// styles
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#232323",
-    justifyContent: "center",
-    flex: 1
-  },
-  text: {
-    color: "white",
-    textAlign: "center"
-  },
-  loadingAnimation: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        backgroundColor: "#232323",
+        justifyContent: "center",
+        flex: 1
+    },
+    text: {
+        color: "white",
+        textAlign: "center"
+    },
+    loadingAnimation: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
 });

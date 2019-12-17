@@ -1,5 +1,7 @@
+//  numder of random data to generate
 const NUM_ATTACKS = 10;
 
+// default data
 const meds = ['Hydroxyzine HCL', 'Xanax', 'Advil', 'Zoloft']
 const activities = ['Homework', 'Studying', 'Class', 'Athletics', 'Video Games', 'Working Out']
 
@@ -17,6 +19,7 @@ const createAttack = () => ({
     notes: "This is a note"
 })
 
+// below methods create random data
 const generateDate = () => {
     let day = rand(28)
     let month = rand(12)
@@ -37,8 +40,6 @@ const generateDosage = () => `${rand(500)}`
 const generateQuantitiy = () => `${rand(3)}`
 const generateActivity = () => `${activities[rand(activities.length - 1)]}`
 const generateActivityDuration = () => `${rand(60)} minutes`
-
-
 
 // generate a random number between min and max
 const rand = (max, min = 0) => Math.floor(Math.random() * (max - min + 1)) + min
