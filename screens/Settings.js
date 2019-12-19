@@ -1,3 +1,5 @@
+// Settings Screen
+
 import React from "react";
 import { View, StyleSheet, Text, Animated, Easing } from "react-native";
 import LottieView from 'lottie-react-native';

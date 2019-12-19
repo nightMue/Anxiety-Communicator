@@ -1,3 +1,5 @@
+// Main file, holds navigation
+
 import React from 'react';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';

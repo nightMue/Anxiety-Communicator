@@ -1,3 +1,5 @@
+// Sign in screen
+
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, Animated, Easing, Button, SafeAreaView } from 'react-native';
 import LottieView from 'lottie-react-native';

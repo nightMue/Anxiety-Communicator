@@ -1,3 +1,5 @@
+// fake data genertaion file
+
 //  numder of random data to generate
 const NUM_ATTACKS = 10;
 

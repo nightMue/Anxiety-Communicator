@@ -1,3 +1,5 @@
+//  Loading Screen to check if user has accoutn signed in already
+
 import React, {Component}from 'react';
 import { StyleSheet, View, ActivityIndicator } from 'react-native';
 

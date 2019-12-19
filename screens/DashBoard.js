@@ -1,3 +1,5 @@
+// Main Home Screen
+
 import React, {Component}from 'react';
 import { StyleSheet, Button, View, Text, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 import firebase from'firebase';

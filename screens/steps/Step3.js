@@ -1,3 +1,5 @@
+// Step 3 of Add Attack form
+
 import React, { Component } from "react";
 import Constants from 'expo-constants';
 import { TextInput, Button, TouchableOpacity, Dimensions, Slider, Text, View, StyleSheet, StatusBar } from 'react-native';

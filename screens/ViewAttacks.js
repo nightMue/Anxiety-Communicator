@@ -1,3 +1,5 @@
+// View attack page
+
 import React from "react";
 import { View, StyleSheet, Text, ScrollView, Dimensions } from "react-native";
 import Constants from 'expo-constants';
